@@ -38,7 +38,7 @@
       # Runs when the workspace is (re)started
       onStart = {
         init-system = "git stash && git pull";
-        # Menjalankan logika docker langsung di sini tanpa file .sh tambahan
+        # Menjalankan logika docker langsung di sini tanpa file .sh tambahan tol
         # Menggunakan format '' untuk multi-line string agar aman dari syntax error
       };
     };
