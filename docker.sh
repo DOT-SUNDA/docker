@@ -1,13 +1,20 @@
 #!/bin/bash
 
-echo "[*] Memulai deployment bot fleet..."
+echo "[*] Memulai pengecekan bot fleet..."
 
 for i in {1..4}; do
     NAME="bot-0$i"
     SLOT_FILE="$(pwd)/slot_bot$i.txt"
     
     echo "----------------------------------------"
-    echo "[*] Menyiapkan $NAME..."
+    
+    # PROTEKSI: Cek apakah kontainer dengan nama tersebut sudah ada (baik jalan atau standby)
+    if [ "$(docker ps -aq -f name=^/${NAME}$)" ]; then
+        echo "[!] $NAME sudah ada. Melewati..."
+        continue
+    fi
+
+    echo "[*] $NAME belum ada. Menyiapkan deployment..."
     touch "$SLOT_FILE"
     
     docker run -d \
@@ -22,9 +29,9 @@ for i in {1..4}; do
       -v "$SLOT_FILE":/app/slot.txt \
       dotaja/jokowi-dotaja:v1
       
-    echo "[+] Container $NAME berjalan. Jeda 10 detik..."
+    echo "[+] Container $NAME berhasil dijalankan. Jeda 10 detik..."
     sleep 10
 done
 
 echo "----------------------------------------"
-echo "[+] Semua bot berhasil di-deploy!"
+echo "[+] Proses selesai! Fleet aman."
