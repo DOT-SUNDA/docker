@@ -11,8 +11,8 @@ for i in {1..4}; do
     docker run -d \
       --name "$NAME" \
       --restart unless-stopped \
-      --cpus="1.5" \
-      --memory="5g" \
+      --cpus="1" \
+      --memory="3g" \
       --shm-size="2g" \
       --tmpfs /tmp:rw,size=256m \
       --tmpfs /app/chrome_profiles:rw,size=2g \
