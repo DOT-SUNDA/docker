@@ -1,8 +1,8 @@
 #!/bin/bash
 
-docker rm -f bot-01 bot-02 bot-03 bot-04
-docker rmi -f dotaja/jokowi-dotaja:v1
-docker system prune -a --volumes -f
+#docker rm -f bot-01 bot-02 bot-03 bot-04
+#docker rmi -f dotaja/jokowi-dotaja:v1
+#docker system prune -a --volumes -f
 
 #echo "[*] Memulai pengecekan bot fleet..."
 #
