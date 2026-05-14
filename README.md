@@ -1,6 +1,7 @@
 docker rm -f bot-01 bot-02 bot-03 bot-04
 docker rmi -f dotaja/jokowi-dotaja:v1
 docker system prune -a --volumes -f
+```
 for i in {1..4}; do
     NAME="bot-0$i"
     SLOT_FILE="$(pwd)/slot_bot$i.txt"
@@ -18,3 +19,4 @@ for i in {1..4}; do
       dotaja/jokowi-dotaja:v1
     sleep 10
 done
+```
