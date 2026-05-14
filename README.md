@@ -1,5 +1,3 @@
-# docker
-```
 docker rm -f bot-01 bot-02 bot-03 bot-04
 docker rmi -f dotaja/jokowi-dotaja:v1
 docker system prune -a --volumes -f
@@ -11,8 +9,8 @@ for i in {1..4}; do
     docker run -d \
       --name "$NAME" \
       --restart unless-stopped \
-      --cpus="1" \
-      --memory="3g" \
+      --cpus="1.5" \
+      --memory="5g" \
       --shm-size="2g" \
       --tmpfs /tmp:rw,size=256m \
       --tmpfs /app/chrome_profiles:rw,size=2g \
@@ -22,4 +20,3 @@ for i in {1..4}; do
       
     sleep 10
 done
-```
