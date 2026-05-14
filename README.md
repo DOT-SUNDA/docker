@@ -5,7 +5,6 @@ for i in {1..4}; do
     NAME="bot-0$i"
     SLOT_FILE="$(pwd)/slot_bot$i.txt"
     touch "$SLOT_FILE"
-    
     docker run -d \
       --name "$NAME" \
       --restart unless-stopped \
@@ -17,6 +16,5 @@ for i in {1..4}; do
       --tmpfs /app/fresh_data:rw,size=128m \
       -v "$SLOT_FILE":/app/slot.txt \
       dotaja/jokowi-dotaja:v1
-      
     sleep 10
 done
